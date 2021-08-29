@@ -1,0 +1,1 @@
+https://github.com/rrtucci/po-paradox/blob/master/po-paradox.pdf
