@@ -1,0 +1,378 @@
+\documentclass[12pt]{article}
+\input{po-paradox.sty}
+
+\begin{document}
+\title{Is Rubin's Potential 
+Outcomes Theory Well Defined?}
+\date{ \today}
+\author{Robert R. Tucci\\
+        tucci@ar-tiste.com}
+\maketitle
+\vskip2cm
+\section*{Abstract}
+Donald Rubin's Potential Outcomes
+ theory makes 
+two key assumptions that we
+shall call SUTVA and CIA.
+In this brief letter, we 
+question whether those two
+assumptions can hold 
+simultaneously.
+
+\newpage
+\section{Introduction}
+Donald Rubin's Potential Outcomes (PO) 
+theory (a.k.a. Rubin's Causal Model) 
+(Ref. \cite{rubin2005}) is a
+popular method for 
+doing causal inference (CI).
+PO theory is explained in numerous 
+textbooks (Refs.\cite{alves-book, book-mixtape, bayesuvius}).
+
+PO theory makes 
+two key assumptions that we
+shall call SUTVA and CIA.
+In this brief letter, we 
+question whether those two
+assumptions can hold 
+simultaneously.
+
+
+\section{Standard PO Assumptions}
+Standard PO analysis 
+considers
+ random variables
+$D^\s\in\bool$, $X^\s$, $Y^\s$ and
+$\vec{\; Y^\s}=(Y^\s(0), Y^\s(1))$,
+where index $\s$
+labels the
+members (individuals, units)
+of the
+population (dataset)
+being considered.
+These variables are
+constrained by the following 2 assumptions:
+\begin{enumerate}
+\item SUTVA
+\beq
+Y^\s=
+D^\s Y^\s(1) + (1-D^\s)Y^\s(0)
+\eeq
+\item 
+Conditional Independence Assumption (CIA)
+
+\beq
+Y^\s(0), Y^\s(1)\perp D^\s|X^\s
+\eeq
+\end{enumerate}
+
+By virtue of these 2 assumptions, 
+we have, for $d\in \bool$,
+
+\begin{subequations}
+\label{eq-expect-sutva-cia}
+\beqa
+E[Y^\s|D^\s=d, X^\s]
+&=&
+E[Y^\s(d)|D^\s=d, X^\s]
+\;\;\;\text{(by SUTVA)}
+\label{eq-SUTVA}
+\\
+&=&
+E[Y^\s(d)|X^\s]
+\;\;\;
+\text{(by CIA)}
+\label{eq-cia}
+\eeqa
+\end{subequations}
+
+In standard PO theory, one defines the
+Average Treatment Effect (ATE) by
+
+\beq
+ATE \eqdef E[Y^\s(1)-Y^\s(0)]
+\eeq
+and its $x$ stratum by
+
+\beq
+ATE_x\eqdef E[Y^\s(1)-Y^\s(0)|X^\s=x]
+\;
+\label{eq-ate-x-def}
+\eeq
+so that
+
+\beq
+ATE =
+\sum_x P(x) ATE_x
+\;.
+\eeq
+$ACE_x$ is defined by 
+Eq.(\ref{eq-ate-x-def}),
+but by virtue of
+ Eq.\ref{eq-expect-sutva-cia},
+it also equals
+\beq
+ATE_x=
+E[Y^\s|D^\s=1, X^\s]-
+E[Y^\s|D^\s=0, X^\s]
+\label{eq-ace-x-2}
+\eeq
+
+
+\section{Can CIA and SUTVA be satisfied
+simultaneously?}
+
+Throughout the previous section,
+and in
+particular in 
+Eqs.(\ref{eq-expect-sutva-cia})
+and (\ref{eq-ace-x-2}),
+we assumed that CIA and SUTVA
+can hold simultaneously.
+Assuming this is
+standard 
+practice in PO 
+theory.
+In this section,
+we question 
+whether that
+assumption
+can ever hold.
+
+
+
+
+
+\begin{figure}[h!]
+$$
+\begin{array}{ccccc}
+\xymatrix{
+&X^\s\ar[ddl]\ar[ddr]
+\\
+\\
+D^\s\ar[rr]&&Y^\s
+}
+&
+\xymatrix{
+&X^\s\ar[ddl]\ar[dr]
+\\
+&&[Y^\s(0),Y^\s(1)]\ar[d]
+\\
+D^\s
+\ar[rr]
+\ar[urr]&&Y^\s
+}
+&
+\xymatrix{
+&X^\s\ar[ddl]\ar[dr]
+\\
+&&[Y^\s(0),Y^\s(1)]\ar[d]
+\\
+D^\s&\tD^\s\ar[r]\ar[ur]
+&Y^\s
+}
+\\
+\\
+G_0&G_1&G_2
+\end{array}
+$$
+\caption{Three Bayesian networks (bnets)
+that could possibly describe PO theory.
+} 
+\label{fig-po-G-im-y0-y1}
+\end{figure}
+
+Fig.\ref{fig-po-G-im-y0-y1}
+shows 3 Bayesian networks\footnote{Bayesian 
+networks are extensively
+discussed 
+by the author of this paper
+in his textbook Ref.\cite{bayesuvius}
+} (bnets)
+labeled   $G_0, G_1, G_2$
+that could possibly
+describe PO theory.\footnote{Remember
+ that bnets are 
+merely a graphical
+representation
+of the chain rule
+for conditional
+probabilities.
+Our using bnets
+in this paper
+does not 
+constitute 
+assuming anything
+beyond the axioms
+of standard probability theory.}
+The Transition
+Probability Matrices (TPMs),
+printed in blue,
+for the nodes of these 3 bnets, are
+as follows:
+
+\begin{itemize} 
+
+\item TPMs for $G_0$
+
+\begin{subequations}
+\beq \color{blue}
+P(x^\s)= P_X(x^\s)
+\eeq
+
+\beq \color{blue}
+P(d^\s|x^\s)= P_{D|X}(d^\s|x^\s)
+\eeq
+
+\beq \color{blue}
+P(y^\s|d^\s,x^\s)= P_{Y|D,X}(y^\s|d^\s, x^\s)
+\eeq
+\end{subequations}
+
+\item TPMs for $G_1$
+
+\begin{subequations}
+\beq \color{blue}
+P(x^\s)= P_X(x^\s)
+\eeq
+
+\beq \color{blue}
+P(d^\s|x^\s)= P_{D|X}(d^\s|x^\s)
+\eeq
+
+
+\beq \color{blue}
+P(y^\s|d^\s,
+\vec{\;y}^\s)= 
+\indi(
+y^\s= y^\s(d^\s))
+\label{eq-indi-g1}
+\eeq
+
+
+For $c\in \bool$, 
+\beq \color{blue}
+P(y^\s(c)|d^\s,x^\s)=
+P_{Y(c)|D, X}(y^\s(c)|d^\s, x^\s)
+\eeq
+
+\end{subequations}
+
+\item TPMs for $G_2$
+
+\begin{subequations}
+\beq \color{blue}
+P(x^\s)= P_X(x^\s)
+\eeq
+
+\beq \color{blue}
+P(d^\s|x^\s)= P_{D|X}(d^\s|x^\s)
+\eeq
+
+
+\beq \color{blue}
+P(y^\s|\td^\s,
+\vec{\;y}^\s)= 
+\indi(
+y^\s= y^\s(\td^\s))
+\label{eq-indi-g2}
+\eeq
+
+For $c\in \bool$,
+\beq \color{blue}
+P(y^\s(c)|\td^\s,x^\s)=
+P_{Y(c)|\tD, X}(y^\s(c)|\td^\s, x^\s)
+\eeq
+\end{subequations}
+
+\end{itemize}
+
+
+
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\rowcolor[HTML]{ECF4FF} 
+ PO assumption & $G_0?$
+& $G_1?$ & $G_2?$
+\\ \hline
+\mbox{\footnotesize $E[Y^\s(1)|D^\s=1, X^\s]
+=
+E[Y^\s(1)|X^\s]$ (CIA)}
+&NA  &No  &  Yes
+\\ \hline
+\mbox{\footnotesize$E[Y^\s|D^\s=1, X^\s]
+=
+E[Y^\s(1)|D^\s=1, X^\s]$ (SUTVA)}
+&NA  & Yes 
+\mbox{\tiny (Eq.(\ref{eq-indi-g1}))}
+ & No
+\\ \hline
+\mbox{\footnotesize$E[Y^\s|\tD^\s=1, X^\s]
+=
+E[Y^\s(1)|\tD^\s=1, X^\s]$ (SUTVA$\sim$)}
+ & NA &NA  & 
+Yes \mbox{\tiny (Eq.(\ref{eq-indi-g2}))}  
+\\ \hline
+\end{tabular}
+\caption{
+``NA" means not applicable.
+``Yes" means that the graph
+satisfies the PO assumption,
+and ``No" means that it doesn't.
+}
+\label{tab-3graphs}
+\end{table}
+
+Now consider Table \ref{tab-3graphs}.
+In that table,
+\begin{itemize}
+\item
+$G_0?$ is NA for all 3 PO assumptions
+because $G_0$
+does not contain nodes for $Y^\s(0)$
+and $Y^\s(1)$
+and these
+appear in the
+3 PO assumptions.
+\item
+The $D$ in SUTVA
+is replaced by a $\tD$ in  SUTVA$\sim$.
+
+\item
+$G_1?$
+is NA 
+for 
+SUTVA$\sim$
+because
+$G_1$
+doesn't have a $\tD^\s$ node.
+\item
+The entries for the CIA row 
+are a consequence of
+Pearl's d-separation theorem.
+
+\item Two ``Yes" entries
+are justified by 
+referring to an equation.
+\end{itemize}
+
+
+As told by Table \ref{tab-3graphs},
+$G_0, G_1$ and $G_2$
+all violate either
+SUTVA or CIA.
+$G_2$ 
+doesn't satisfy both CIA and SUTVA, 
+but it does
+satisfy CIA and
+a modified version
+of SUTVA that we call
+SUTVA$\sim$.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

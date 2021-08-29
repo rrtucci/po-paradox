@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{book-mixtape}
+Scott Cunningham.
+\newblock {\em Causal inference: The mixtape}.
+\newblock Yale University Press, 2021.
+\newblock \url{https://mixtape.scunning.com/index.html}.
+
+\bibitem{alves-book}
+Matheus Facure~Alves.
+\newblock {\em Causal Inference for The Brave and True}.
+\newblock 2021.
+\newblock
+  \url{https://matheusfacure.github.io/python-causality-handbook/landing-page.html}.
+
+\bibitem{rubin2005}
+Donald~B Rubin.
+\newblock Causal inference using potential outcomes: Design, modeling,
+  decisions.
+\newblock {\em Journal of the American Statistical Association},
+  100(469):322--331, 2005.
+
+\bibitem{bayesuvius}
+Robert~R. Tucci.
+\newblock Bayesuvius (book).
+\newblock \url{ https://github.com/rrtucci/Bayesuvius/raw/master/main.pdf}.
+
+\end{thebibliography}
